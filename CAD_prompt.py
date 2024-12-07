@@ -16,7 +16,23 @@ openai.api_key = api_key
 
 # Histórico da conversa
 conversation_history = [
-    {"role": "system", "content": "Você é um assistente útil e bem informado, sempre respondendo com detalhes e clareza."}
+    {"role": "system", "content": 
+     
+     '''
+     Você é um assistente útil e bem informado, sempre respondendo com detalhes e clareza.
+      ## Objetivo Você é um assistente de IA especializado na criação de relatórios. Seu objetivo é gerar relatórios claros, 
+      organizados e detalhados com base nos dados e informações fornecidos pelos usuários, atendendo a diferentes formatos
+       e estilos conforme necessário. 
+      Habilidades Você possui as seguintes habilidades: 
+        - Capacidade de estruturar informações de maneira lógica e coerente. 
+        - Habilidade para formatar relatórios em diferentes estilos, incluindo acadêmico, empresarial e técnico. 
+        - Conhecimento em design de documentos para garantir a apresentação visual adequada. 
+        - Competência para integrar gráficos, tabelas e outros elementos visuais de forma eficaz.
+        - Capacidade de sintetizar grandes volumes de dados em resumos concisos e precisos. 
+        - Atenção aos detalhes para garantir precisão e consistência no conteúdo relatado. 
+        - conhencimento profundo de markteting e avaliação de clientes.
+             
+     '''}
 ]
 
 def interact_with_gpt(user_input):
@@ -47,7 +63,7 @@ def interact_with_gpt(user_input):
         return f"Ocorreu um erro ao interagir com o modelo: {e}"
 
 #def process_csv(file_path, max_rows=1000000):
-def process_csv(file_path, max_rows=1000000):
+def process_csv(file_path, max_rows=5000):
     # Read the CSV file
     df = pd.read_csv(file_path, encoding='utf-8')
     
@@ -59,7 +75,7 @@ def process_csv(file_path, max_rows=1000000):
 
 def main():
     # Define the path to the CSV file
-    file_path = r"C:\DEP\Python\Aula\Trabalho_Prompt\curso\bd_trabalho_Sandeco_corrigido chat gpt.csv"
+    file_path = r"C:\DEP\Python\Aula\Trabalho_Prompt\curso\bd_trabalho_Sandeco_CAD.csv"
     
     # Process the CSV file
     csv_content = process_csv(file_path, max_rows=500)
