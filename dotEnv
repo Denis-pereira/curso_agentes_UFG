@@ -1,0 +1,30 @@
+# Como Criar e Utilizar um Arquivo `.env` em um Projeto Python
+
+Neste guia, vamos explorar como configurar e usar um arquivo `.env` para armazenar variáveis de ambiente, utilizando um exemplo em Python que faz uso da biblioteca `openai` e `pandas`. O arquivo `.env` é especialmente útil para manter informações sensíveis, como chaves de API, fora do código-fonte.
+
+## Por Que Usar um Arquivo `.env`?
+
+Um arquivo `.env` ajuda a separar a configuração do ambiente de execução do seu código, garantindo que informações sensíveis não sejam expostas no controle de versão (como Git). Ele também facilita a alteração de configurações sem modificar o código-fonte.
+
+## Passos para Criar e Usar um `.env`
+
+### 1. Instalar a Biblioteca `python-dotenv`
+
+Para gerenciar o arquivo `.env`, você precisará da biblioteca `python-dotenv`. Instale-a usando o seguinte comando:
+
+
+import pandas as pd
+import openai
+from dotenv import load_dotenv
+import os
+
+# Carregar variáveis de ambiente do arquivo .env
+load_dotenv()
+
+# Configurar a chave da API da OpenAI
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("A chave da API 'OPENAI_API_KEY' não foi encontrada. Verifique o arquivo .env.")
+
+# Inicializar a API da OpenAI
+openai.api_key = api_key
